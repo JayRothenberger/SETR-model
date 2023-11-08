@@ -357,5 +357,5 @@ class SETR(nn.Module):
         self.mlp = torchvision.ops.MLP(out_channels, [output_dim], torch.nn.BatchNorm1d, torch.nn.ReLU, dropout=dropout)
 
     def forward(self, x):
-        x = self.encoder(x).detach()
+        x = self.encoder(x)
         return self.mlp(self.decoder(x))
